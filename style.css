@@ -42,8 +42,8 @@ body {
 }
 
 .food {
-    background-color: #FF3131;
-    border-radius: 50%;
+    background-color: #ff0000; /* Red food */
+    border-radius: 50%; /* Circular food */
 }
 
 #controls {
@@ -54,17 +54,27 @@ body {
 }
 
 .control-btn {
-    background-color: #001a00;
+    background-color: #002200;
     color: #00ff00;
-    border: 1px solid #00ff00;
-    padding: 10px;
+    border: 2px solid #00ff00;
+    border-radius: 10px;
+    padding: 15px;
     margin: 5px;
     font-size: 20px;
     cursor: pointer;
+    transition: background-color 0.2s, transform 0.1s;
+}
+
+.control-btn:hover {
+    background-color: #004400; /* Darker green on hover */
+}
+
+.control-btn:active {
+    transform: scale(0.95); /* Button press effect */
 }
 
 .horizontal-controls {
     display: flex;
     justify-content: space-between;
-    width: 100px;
+    width: 120px;
 }
