@@ -43,6 +43,6 @@ body {
 }
 
 .food {
-    background-color: #00e600; /* Lighter green for the food */
+    background-color: #FF3131; /* Lighter green for the food */
     border-radius: 50%; /* Makes the food a circle */
 }
