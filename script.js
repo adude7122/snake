@@ -76,6 +76,46 @@ function render() {
     cells[foodIndex].classList.add('food');
 }
 
+// Add gesture support
+let startX, startY;
+
+board.addEventListener('touchstart', (e) => {
+    const touch = e.touches[0];
+    startX = touch.clientX;
+    startY = touch.clientY;
+});
+
+board.addEventListener('touchmove', (e) => {
+    if (!startX || !startY) return;
+
+    const touch = e.touches[0];
+    const endX = touch.clientX;
+    const endY = touch.clientY;
+
+    const diffX = endX - startX;
+    const diffY = endY - startY;
+
+    if (Math.abs(diffX) > Math.abs(diffY)) {
+        // Horizontal swipe
+        if (diffX > 0 && direction.x === 0) {
+            direction = { x: 1, y: 0 }; // Swipe right
+        } else if (diffX < 0 && direction.x === 0) {
+            direction = { x: -1, y: 0 }; // Swipe left
+        }
+    } else {
+        // Vertical swipe
+        if (diffY > 0 && direction.y === 0) {
+            direction = { x: 0, y: 1 }; // Swipe down
+        } else if (diffY < 0 && direction.y === 0) {
+            direction = { x: 0, y: -1 }; // Swipe up
+        }
+    }
+
+    // Reset start positions to prevent continuous detection
+    startX = null;
+    startY = null;
+});
+
 window.addEventListener('keydown', (e) => {
     switch (e.key) {
         case 'ArrowUp':
@@ -91,23 +131,6 @@ window.addEventListener('keydown', (e) => {
             if (direction.x === 0) direction = { x: 1, y: 0 };
             break;
     }
-});
-
-// Add mobile controls
-document.getElementById('up').addEventListener('click', () => {
-    if (direction.y === 0) direction = { x: 0, y: -1 };
-});
-
-document.getElementById('down').addEventListener('click', () => {
-    if (direction.y === 0) direction = { x: 0, y: 1 };
-});
-
-document.getElementById('left').addEventListener('click', () => {
-    if (direction.x === 0) direction = { x: -1, y: 0 };
-});
-
-document.getElementById('right').addEventListener('click', () => {
-    if (direction.x === 0) direction = { x: 1, y: 0 };
 });
 
 function updateBestScore() {
@@ -128,4 +151,3 @@ function resetGame() {
 
 // Run game loop every 100ms
 setInterval(gameLoop, 100);
-
