@@ -1,26 +1,25 @@
 body {
     display: flex;
     flex-direction: column;
-    justify-content: center;
     align-items: center;
     height: 100vh;
     margin: 0;
-    background-color: #0a0f0d; /* Dark hacker background */
+    background-color: #0a0f0d;
     background-image: linear-gradient(135deg, #002200 25%, transparent 25%), 
                       linear-gradient(225deg, #002200 25%, transparent 25%),
                       linear-gradient(45deg, #002200 25%, transparent 25%),
                       linear-gradient(315deg, #002200 25%, #0a0f0d 25%);
     background-size: 40px 40px;
     background-position: 0 0, 0 20px, 20px -20px, -20px 0;
-    color: #00ff00; /* Hacker green text */
-    font-family: 'Courier New', Courier, monospace; /* Terminal-like font */
+    color: #00ff00;
+    font-family: 'Courier New', Courier, monospace;
 }
 
 #score-container {
-    color: #00ff00; /* Hacker green */
-    margin-bottom: 20px;
+    color: #00ff00;
     font-size: 20px;
     text-align: center;
+    margin-bottom: 10px;
 }
 
 #game-board {
@@ -29,20 +28,43 @@ body {
     grid-template-rows: repeat(20, 20px);
     gap: 1px;
     background-color: #000;
-    border: 2px solid #00ff00; /* Green border */
+    border: 2px solid #00ff00;
 }
 
 .cell {
     width: 20px;
     height: 20px;
-    background-color: #001a00; /* Dark green background */
+    background-color: #001a00;
 }
 
 .snake {
-    background-color: #00ff00; /* Bright green for the snake */
+    background-color: #00ff00;
 }
 
 .food {
-    background-color: #FF3131; /* Lighter green for the food */
-    border-radius: 50%; /* Makes the food a circle */
+    background-color: #00e600;
+    border-radius: 50%;
+}
+
+#controls {
+    margin-top: 15px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.control-btn {
+    background-color: #001a00;
+    color: #00ff00;
+    border: 1px solid #00ff00;
+    padding: 10px;
+    margin: 5px;
+    font-size: 20px;
+    cursor: pointer;
+}
+
+.horizontal-controls {
+    display: flex;
+    justify-content: space-between;
+    width: 100px;
 }
