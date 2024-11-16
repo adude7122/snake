@@ -4,31 +4,30 @@ body {
     align-items: center;
     height: 100vh;
     margin: 0;
-    background-color: #0a0f0d;
-    color: #00ff00;
-    font-family: 'courier new', courier, monospace;
+    background-color: #0a0f0d; /* Dark background */
+    color: #00ff00; /* Hacker green text */
+    font-family: 'Courier New', Courier, monospace; /* Terminal-like font */
 }
 
-#gameBoard {
+#game-board {
     display: grid;
     grid-template-columns: repeat(20, 20px);
     grid-template-rows: repeat(20, 20px);
     gap: 1px;
-    background-color: #000;
-    border: 2px solid #00ff00;
+    background-color: #000; /* Black background for the board */
+    border: 2px solid #00ff00; /* Green border */
 }
 
 .cell {
     width: 20px;
     height: 20px;
-    background-color: #001a00;
+    background-color: #001a00; /* Dark green background */
 }
 
 .snake {
-    background-color: #00ff00;
+    background-color: #00ff00; /* Bright green for the snake */
 }
 
 .food {
-    background-color: #FF3131;
-    border-radius: 50%;
+    background-color: #00e600; /* Lighter green for the food */
 }
